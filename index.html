@@ -26,16 +26,16 @@
                 return false;
             }
             else{
-                changeBorderToGreen('studentName')
+                changeBorderToGreen('studentEmail')
             }
-            if (document.studentForm.studentCode.value == "" || document.studentForm.studentCode.value.length != 6) {
+            if (document.studentForm.studentCode.value == "" || isNaN(document.studentForm.studentCode.value) || document.studentForm.studentCode.value.length != 6) {
                 alert("Please enter your 6 digit student code");
                 changeBorderToRed('studentCode')
                 document.studentForm.studentCode.focus();
                 return false;
             }
             else{
-                changeBorderToGreen('studentName')
+                changeBorderToGreen('studentCode')
             }
             if (document.studentForm.studentCourse.value == "-1") {
                 alert("Please provide your current course!");
@@ -44,7 +44,7 @@
                 return false;
             }
             else{
-                changeBorderToGreen('studentName')
+                changeBorderToGreen('studentCourse')
             }
             return true;
         }
