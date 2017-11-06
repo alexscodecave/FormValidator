@@ -1,0 +1,116 @@
+<html>
+
+<head>
+    <title>Form Validation</title>
+    <script type="text/javascript">
+        function validateStudent() {
+
+            //access form elements by going down the DOM tree i.e. document then form name then name of element within form
+            //then finally using value to access the attribute of the element
+            if (document.studentForm.studentName.value == "") {
+                alert("Please provide your name!");
+                //then set that specific element to focus to make the form more user friendly
+                //document.getElementById('studentName').style.borderColor="red";
+                changeBorderToRed('studentName')
+                document.studentForm.studentName.focus();
+                return false;
+            }
+            else{
+                changeBorderToGreen('studentName')
+            }
+
+            if (document.studentForm.studentEmail.value == "") {
+                alert("Please provide your Email!");
+                changeBorderToRed('studentEmail')
+                document.studentForm.studentEmail.focus();
+                return false;
+            }
+            else{
+                changeBorderToGreen('studentName')
+            }
+            if (document.studentForm.studentCode.value == "" || document.studentForm.studentCode.value.length != 6) {
+                alert("Please enter your 6 digit student code");
+                changeBorderToRed('studentCode')
+                document.studentForm.studentCode.focus();
+                return false;
+            }
+            else{
+                changeBorderToGreen('studentName')
+            }
+            if (document.studentForm.studentCourse.value == "-1") {
+                alert("Please provide your current course!");
+                changeBorderToRed('studentCourse')
+                document.studentForm.studentCode.focus();
+                return false;
+            }
+            else{
+                changeBorderToGreen('studentName')
+            }
+            return true;
+        }
+
+
+        function changeBorderToRed(formElementName){
+            document.getElementById(formElementName).style.borderColor="red";
+        }
+
+        function changeBorderToGreen(formElementName){
+            document.getElementById(formElementName).style.borderColor="green";
+        }
+
+    </script>
+</head>
+
+<body>
+    <form action="" name="studentForm" onsubmit="return(validateStudent());">
+
+        <table cellspacing="2" cellpadding="2" border="1">
+            <tr>
+                <td align="right">Name:</td>
+                <td>
+                    <input type="text" name="studentName" id="studentName" />
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">Student Email:</td>
+                <td>
+                    <input type="text" name="studentEmail" />
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">Student code:</td>
+                <td>
+                    <input type="text" name="studentCode" />
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">Course</td>
+                <td>
+                    <select name="studentCourse">
+                        <option value="-1" selected>[Choose yours]</option>
+                        </option>
+                        <option value="1">Computing</option>
+                        <option value="2">Nursing</option>
+                        <option value="3">Electrical engineering</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right"></td>
+                <td>
+                    <input type="submit" value="Submit" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+
+
+
+
+</html>
